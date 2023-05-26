@@ -25,24 +25,72 @@
                 "Changer de forme" : Appuyer sur la touche <strong>[space]</strong><br>
             </p>
             <div class="project-language">Python</div>
+			<div class="project-links">
+				<a href="../projects/DeltaPaint/Daytala-KA75.png" download="Daytala-KA75.png" class="download-button" >Download Image [REQUIRED]</a>
+				<a href="../projects/DeltaPaint/mouse_game.py" download="mouse_game.py" class="download-button" >Download Code [REQUIRED]</a>
+			</div>
         </div>
-        <div class="project-links">
-            <a href="../projects/DeltaPaint/Daytala-KA75.png" download="Daytala-KA75.png" class="download-button" >Download Image [REQUIRED]</a>
-            <a href="../projects/DeltaPaint/mouse_game.py" download="mouse_game.py" class="download-button" >Download Code [REQUIRED]</a>
-        </div>
+        <button onclick="hide(this)">Hide</button>
+		<button onclick="reveal(this)">Reveal</button>
     </div>
+	<div class="project-container">
+		<img src="../projects/icones/python.png" class="project-image">
+		<div class="project-info">
+			<div class="project-name">Life Game</div>
+			<div class="project-description">Le jeu mathématique de la vie en python</div>
+			<h3 id="tuto">Comment utiliser ?</h3>
+			<em class="terminal" id="tuto">$ python3 life_game.py  < args ></em>
+			<p id="tuto">
+				<br>
+				"Génération aléatoire": Ajouter <strong>random</strong> comme argument
+			</p>
+			<div class="project-language">Python</div>
+			<div class="project-links">
+				<a href="../projects/LifeGame/life_game.py" download="life_game.py" class="download-button">Download Code [REQUIRED]</a>
+			</div>
+		</div>
+		<button onclick="hide(this)">Hide</button>
+		<button onclick="reveal(this)">Reveal</button>
+		
+	</div>
     <script>
-        // Faire un script javascript qui dès que l'élément download est cliqué, afficher tous les élément tuto dans la page html'
-        const downloadBtn = document.querySelector('.project-links');
-        const tutoElements = document.querySelectorAll('#tuto');
+        // Faire un script javascript qui dès que l'élément project-links est cliquer, afficher affiche l'élément avec id tuto associé'
+		const projectLinks = document.querySelectorAll('.project-links');
 
-        downloadBtn.addEventListener('click', () => {
-        console.log("click download");
-        tutoElements.forEach((tuto) => {
-            tuto.style.display = 'block';
-            tuto.style.visibility = 'visible';
-        });
-        });
+		function hide(element) {
+			console.log("element", element)
+			const tutos = element.parentNode.querySelectorAll('#tuto');
+			tutos.forEach((tuto) => {
+				tuto.style.display = 'none';
+				tuto.style.visibility = 'hidden';
+				tuto.style.height = '0';
+			});
+		}
+		
+		function reveal(element) {
+			console.log("element", element)
+			const tutos = element.parentNode.querySelectorAll('#tuto');
+			tutos.forEach((tuto) => {
+				tuto.style.display = 'block';
+				tuto.style.visibility = 'visible';
+				tuto.style.width = '100%';
+				tuto.style.height = '100%';
+			});
+		}
+
+		projectLinks.forEach((link) => {
+		link.addEventListener('click', (event) => {
+			const tuto = event.target.parentNode.querySelectorAll('#tuto');
+			tuto.forEach((tuto) => {
+				tuto.style.display = 'block';
+				tuto.style.visibility = 'visible';
+				tuto.style.width = '100%';
+				tuto.style.height = '100%';
+			})
+            
+		});
+		});
+
 
     </script>
 </body>

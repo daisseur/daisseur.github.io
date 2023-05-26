@@ -12,7 +12,9 @@
     <div class="banner">
         <h1>PROJECTS - HOME</h1>
     </div>
-    <button href="./GPT/index.html">New page</button>
+    <a href="./GPT/index.html">
+        <button>New page</button>
+    </a>
     <div id="download">
         <div class="img"><img src="./projects/DeltaPaint/Daytala-KA75.png" width="400" height=auto></div>
         <a href="./projects/DeltaPaint/DeltaPaint.py" download="DeltaPaint.py"> Télécharger le fichier </a>
@@ -29,6 +31,7 @@
     <script>
         const downloadBtn = document.querySelector('#download');
         const tutoElements = document.querySelectorAll('#tuto');
+
 
         downloadBtn.addEventListener('click', () => {
         console.log("click download");

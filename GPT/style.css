@@ -41,12 +41,22 @@ h1 {
 .project-image {
     max-width: 300px;
     max-height: 200px;
+    border-radius: 4px;
 }
 .project-links {
     display: flex;
     flex-wrap: wrap;
     }
-
+em.terminal {
+    background-color: #222;
+    color: #ddd;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    padding: 7px;
+    width:auto;
+    margin-bottom: 10px;
+  }
+  
 .download-button {
     display: inline-block;
     background-color: #007bff;
@@ -59,10 +69,34 @@ h1 {
     border-radius: 5px;
     height: 15px;
     }
-
-.download-button:hover {
-    background-color: #0056b3;
+    .download-button:hover {
+        background-color: #0056b3;
+        }
+button {
+    display: inline-block;
+    background-color: #435261;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    font-size: 14px;
+    padding: 10px 20px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    height: 30px;
+    transform: translateY();
+    transition: 200ms;
     }
+    button:hover {
+        background-color: #708191;
+    }
+    button:active {
+        background-color: #435261;
+        transform:translateY(+3px);
+    }
+
 #tuto {
     visibility: hidden;
+    height: 0;
+    transition: 600ms ease-in-out; 
 }

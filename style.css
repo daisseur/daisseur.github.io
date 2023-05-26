@@ -56,17 +56,22 @@ div#download {
     border-radius: 2px solid black;
     padding: 5px;
 }
-.button {
+button {
     display: inline-block;
-    background-color: rgb(14, 110, 134);
+    background-color: rgb(39, 171, 204);
     color: #fff;
-    text-decoration: none;
     font-size: 14px;
     padding: 10px 15px;
     margin-right: 10px;
     margin-bottom: 10px;
-    border-radius: 2px;
-    height: 15px;
+    border-radius: 6px;
+    margin-top: auto;
+    transform: translateY();
+    transition: 200ms;
+}
+button:hover {
+    background-color: rgb(2, 204, 255);
+    transform:translateY(-3px);
 }
 #tuto {
     visibility: hidden;

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--Faire une page html pour télécharger mon fichier mouse_game.py -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>PROJECTS - HOME</title>
+</head>
+<body>
+    <!-- Faire un  bouton pour télécharger le fichier mouse_game.py et afficher un message du tuto de comment l'utiliser -->
+    <div class="banner">
+        <h1>PROJECTS - HOME</h1>
+    </div>
+    <div id="download">
+        <div class="img"><img src="./Daytala-KA75.png" width="400" height=auto></div>
+        <a href="mouse_game.py" download="DeltaPaint.py"> Télécharger le fichier </a>
+    </div>
+    <h3 id="tuto">Comment utiliser ?</h3>
+    <p id="tuto">
+        "Effacer l'écran" : Appuyez sur la touche <strong>[backspace]</strong><br>
+        "Enregistrer" : Appuyez sur la touche <strong>[S]</strong><br>
+        "Changer de couleur" : <strong>Clique droit</strong> de la souris<br>
+        "Enlever le suivi de la souris" : <strong>Clique gauche</strong> de la souris<br>
+        "Agrandir - diminuer" : <strong>Mollette</strong> de la souris<br>
+        "Changer de forme" : Appuyer sur la touche <strong>[space]</strong><br>
+    </p>
+    <script>
+        // Faire un script javascript qui dès que l'élément download est cliqué, afficher tous les élément tuto dans la page html'
+        const downloadBtn = document.querySelector('#download');
+        const tutoElements = document.querySelectorAll('#tuto');
+
+        downloadBtn.addEventListener('click', () => {
+        console.log("click download");
+        tutoElements.forEach((tuto) => {
+            tuto.style.display = 'block';
+            tuto.style.visibility = 'visible';
+        });
+        });
+
+    </script>
+</body>
+</html>
+

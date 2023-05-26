@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>My Coding Projects</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f2f2f2;
+		}
+		h1 {
+			text-align: center;
+			font-size: 3rem;
+			margin-top: 2rem;
+			color: #333;
+		}
+		.project-container {
+			border: 1px solid #ddd;
+			border-radius: 10px;
+			padding: 1rem;
+			margin: 2rem 5rem;
+			display: flex;
+			flex-direction: row;
+		}
+		.project-info {
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+			margin-left: 1rem;
+		}
+		.project-name {
+			font-size: 2rem;
+			font-weight: bold;
+			color: #333;
+			margin-bottom: 0.5rem;
+		}
+		.project-description {
+			font-size: 1.5rem;
+			color: #777;
+			margin-bottom: 1rem;
+		}
+		.project-language {
+			font-size: 1rem;
+			color: #777;
+			margin-bottom: 1rem;
+		}
+		.project-image {
+			max-width: 300px;
+			max-height: 200px;
+		}
+        .project-links {
+            display: flex;
+            flex-wrap: wrap;
+            }
+
+        .download-button {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+            padding: 10px 20px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            height: 15px;
+            }
+
+        .download-button:hover {
+            background-color: #0056b3;
+            }
+        #tuto {
+            visibility: hidden;
+        }
+	</style>
+</head>
+<body>
+	<h1>My Coding Projects</h1>
+	<div class="project-container">
+		<img src="../projects/DeltaPaint/Daytala-KA75.png" class="project-image">
+		<div class="project-info">
+			<div class="project-name">DeltaPaint</div>
+			<div class="project-description">La paint d'il y a 30 ans mais en python</div>
+            <h3 id="tuto">Comment utiliser ?</h3>
+            <p id="tuto">
+                "Effacer l'écran" : Appuyez sur la touche <strong>[backspace]</strong><br>
+                "Enregistrer" : Appuyez sur la touche <strong>[S]</strong><br>
+                "Changer de couleur" : <strong>Clique droit</strong> de la souris<br>
+                "Enlever le suivi de la souris" : <strong>Clique gauche</strong> de la souris<br>
+                "Agrandir - diminuer" : <strong>Mollette</strong> de la souris<br>
+                "Changer de forme" : Appuyer sur la touche <strong>[space]</strong><br>
+            </p>
+            <div class="project-language">Python</div>
+        </div>
+        <div class="project-links">
+            <a href="../projects/DeltaPaint/Daytala-KA75.png" download="Daytala-KA75.png" class="download-button" >Download Image [REQUIRED]</a>
+            <a href="../projects/DeltaPaint/mouse_game.py" download="mouse_game.py" class="download-button" >Download Code [REQUIRED]</a>
+        </div>
+    </div>
+    <script>
+        // Faire un script javascript qui dès que l'élément download est cliqué, afficher tous les élément tuto dans la page html'
+        const downloadBtn = document.querySelector('.project-links');
+        const tutoElements = document.querySelectorAll('#tuto');
+
+        downloadBtn.addEventListener('click', () => {
+        console.log("click download");
+        tutoElements.forEach((tuto) => {
+            tuto.style.display = 'block';
+            tuto.style.visibility = 'visible';
+        });
+        });
+
+    </script>
+</body>
+</html>

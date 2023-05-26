@@ -37,7 +37,8 @@ follow = True
 color = (255, 255, 255)
 size = 10
 around = [{}]
-forme = "circle"
+all_forme = ["circle", "square", "triangle"]
+forme_set= "circle"
 
 def rcolor():
     global color
@@ -86,17 +87,22 @@ while run:
         around[-1] = {}
         tmp = around[-1]
         x, y = pygame.mouse.get_pos()
-        if forme == "circle":
+        if forme_set== "circle":
             for p_x in range(x - size, x + size + 1):
                 for p_y in range(y - size, y + size + 1):
                     distance = math.sqrt((p_x - x) ** 2 + (p_y - y) ** 2)
                     if distance <= size:
                         tmp[(p_x, p_y)] = color
-        else:
+        elif forme_set== "square":
             for p_x in range(x - size, x + size + 1):
                 for p_y in range(y - size, y + size + 1):
                     tmp[(p_x, p_y)] = color
-
+        elif forme_set == "triangle":
+            i = size -1
+            for p_x in range(x - size+i, x + size + 1-i):
+                for p_y in range(y - size, y + size + 1):
+                    tmp[(p_x, p_y)] = color
+                i += 1
 
     for forme in around:
         for xy, rgb in forme.items():
@@ -124,11 +130,9 @@ while run:
         print("saved")
         sleep(0.1)
     elif keys[pygame.K_SPACE]:
-        if forme == "circle":
-            forme = "square"
-        else:
-            forme = "circle"
-        sleep(0.1)
+        forme_set = all_forme[(all_forme.index(forme_set)+1)%len(all_forme)]
+        print(forme_set)
+        sleep(0.2)
     elif keys[pygame.K_BACKSPACE]:
         around = [{}, {}]
         screen.fill((0, 0, 0))

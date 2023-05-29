@@ -15,6 +15,7 @@
 		Changer de mode
 		<span class="material-symbols-outlined">partly_cloudy_night</span>
 	</button>
+	<button id="clear-button" onclick="clearCookies()">Effacer les cookies</button>
 	<div class="project-container">
 		<img src="./projects/DeltaPaint/Daytala-KA75.png" class="project-image">
 		<div class="project-info">
@@ -35,6 +36,7 @@
 				<a href="./projects/DeltaPaint/mouse_game.py" download="mouse_game.py" class="download-button" >Download Code [REQUIRED]</a>
 			</div>
         </div>
+		<p id="viewer">Vu <strong>0</strong> fois par vous </p>
         <button onclick="hide(this)">Hide</button>
 		<button onclick="reveal(this)">Reveal</button>
     </div>
@@ -54,10 +56,14 @@
 				<a href="./projects/LifeGame/life_game.py" download="life_game.py" class="download-button">Download Code [REQUIRED]</a>
 			</div>
 		</div>
+		<p id="viewer">Vu <strong>0</strong> fois par vous </p>
 		<button onclick="hide(this)">Hide</button>
 		<button onclick="reveal(this)">Reveal</button>
 		
 	</div>
+	<!-- Faire un élément pour mettre uen vidéo en arriere plan -->
+	<video class="background-video" src="./bg.mp4" autoplay muted loop>
+	<script src="./index.js"></script>
 </body>
-    <script src="./index.js"></script>
+    
 </html>

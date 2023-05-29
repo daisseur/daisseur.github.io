@@ -1,3 +1,4 @@
+from time import sleep
 def calc(notes):
 	notes = [float(i) for i in notes.split()]
 	total = 0
@@ -5,3 +6,4 @@ def calc(notes):
 		total += i
 	print(total/len(notes))
 calc(input("Entrez vos notes séparé par un espace : "))
+sleep(10)

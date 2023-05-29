@@ -82,14 +82,15 @@ function addViewed(element) {
 function checkCookie(cookieName, defaultValue, func = null) {
     let cookieValue = getCookie(cookieName);
     type = typeof defaultValue;
-    if (cookieValue === null) {
+    if (!cookieValue) {
         return defaultValue;
     } else {
+        cookieValue = type === "boolean" ? Boolean(cookieValue) : type === "number" ? Number(cookieValue) : cookieValue;
         console.log(`${cookieName} cookie :`, cookieValue);
         if (func) {
             return func(cookieValue);
         } else {
-            return type === "boolean" ? Boolean(cookieValue) : type === "number" ? Number(cookieValue) : cookieValue;
+            return cookieValue;
         }
     }
 }

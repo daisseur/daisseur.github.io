@@ -158,7 +158,7 @@ strong {
 }
 #clear-button {
     position: fixed;
-    background-image: radial-gradient(#33583b, grey);
+    background-image: linear-gradient(to right, rgb(37, 65, 43) 20%, gray 60%);
     right: 250px;
     top: 3px;
     font-family:  monospace;
@@ -168,10 +168,10 @@ strong {
     width: auto;
     height: 50px;
     margin-bottom: 10px;
-    border: #222 4px solid;
+    border: var(--sub-color) 4px solid;
 }
 #clear-button:hover {
-    background-image: radial-gradient(#25412b, grey);
-    border: black 4px solid;
+    border: #222 4px solid;
+    background-image: linear-gradient(to right, rgb(37, 65, 43) 20%, rgb(99, 99, 99) 60%);
 }
   

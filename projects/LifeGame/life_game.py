@@ -7,6 +7,7 @@ from os.path import exists
 from ast import literal_eval
 import sys
 import signal
+import random
 
 EMERGENCY_END = False
 closable = True
@@ -79,6 +80,7 @@ class LifeGame:
             yx = (round(self.height / 2), round(self.width / 2))
         y, x = yx
         figure = get_array(lifeId)
+        # print(figure.tolist())
         self.a[y:y + figure.shape[0], x:x + figure.shape[1]] = figure
 
     def base_alive_gen(self):
@@ -284,13 +286,13 @@ class LifeGame:
             pre_states = pre_states[-50:]
 
 
-def serial_test(range_list=range(21), height=150, width=150, cell_size=5, show=True):
+def serial_test(range_list=range(21), height=150, width=150, cell_size=5, show=True, save=False, fast=False):
     global closable
     data = {}
     lifeGame = LifeGame(delay=0, height=height, width=width, cell_size=cell_size)
 
     closable = False
-    for result in lifeGame.test_all_in(range_list=range_list, log_day=True, show=show):
+    for result in lifeGame.test_all_in(range_list=range_list, log_day=not fast, show=show):
         data.update(result)
         print("(added result)")
         if EMERGENCY_END:
@@ -305,16 +307,16 @@ def serial_test(range_list=range(21), height=150, width=150, cell_size=5, show=T
         if isinstance(o, np.int32):
             return int(o)
         raise TypeError
-
-    try:
-        not exists("lifeSave.json") or data.update(json.loads(open("lifeSave.json", 'r').read()))
-        data = json.dumps(data, default=convert)
-    except Exception as error:
-        print(f"error json: {error}\nwriting brut data...")
-        not exists("lifeSave.json") or data.update(literal_eval(open("lifeSave", 'r').read()))
-        open("lifeSave", 'w+').write(str(data))
-    else:
-        open("lifeSave.json", 'w+').write(data)
+    if save:
+        try:
+            not exists("lifeSave.json") or data.update(json.loads(open("lifeSave.json", 'r').read()))
+            data = json.dumps(data, default=convert)
+        except Exception as error:
+            print(f"error json: {error}\nwriting brut data...")
+            not exists("lifeSave.json") or data.update(literal_eval(open("lifeSave", 'r').read()))
+            open("lifeSave", 'w+').write(str(data))
+        else:
+            open("lifeSave.json", 'w+').write(data)
     closable = True
 
     for value in data.values():
@@ -345,53 +347,90 @@ def resume_test(limit=50):
     test_number = len(data)
     serial_test(range_list=range(test_number, test_number + limit))
 
+def main(lifeID=None, space=0):
+    width = 150
+    height = 150
+    cell_size = 5
+    lifeGame = LifeGame(delay=0, height=height, width=width, cell_size=cell_size)
+    lifeGame.init_pygame()
+    if lifeID:
+        for y in range(0, height, 5+space):
+            for x in range(0, width, 5+space):
+                if x!= 0 or y!= 0:
+                    lifeGame.set(lifeId=lifeID, yx=(y, x))
+    else:
+        lifeID = ''
+        for i in range(25):
+            lifeID += str(random.randint(0, 1))
+        print(lifeID)
+        for y in range(0, height, 5+space):
+            for x in range(0, width, 5+space):
+                if x!= 0 or y!= 0:
+                    lifeGame.set(lifeId=lifeID, yx=(y, x))
+    lifeGame.show_map()
+    lifeGame.run()
 
 if __name__ == "__main__":
     signal.signal(signal.SIGINT, signal_handler)
     args = sys.argv[1:]
-    if len(args) == 0:
-        args = ['']
-    if args[-1] == "nogui":
-        show = False
-    else:
-        show = True
-    if args[0] == "test":
-        lifeGame = LifeGame(delay=0, height=150, width=150, )
-        if len(args) > 2:
-            if args[1] == "id":
-                lifeId = args[2]
-                lifeGame.test(lifeId, show=show)
-            elif args[1] == "number":
-                lifeGame.test(int(args[2]), show=show)
-    elif args[0] == "resume":
-        if len(args) > 1:
-            if len(args) > 2:
-                test_number = int(args[1])
-                serial_test(range_list=range(test_number, int(args[2])), show=show)
-            elif "+" in args[1]:
-                limit = int(args[1][1:])
-                print(f"resume to +{limit}")
-                resume_test(limit=limit)
-            else:
-                test_number = int(args[1])
-                serial_test(range_list=range(test_number, test_number + 50), show=show)
+    if "main" in args:
+        if len(args) == 2:
+            main(args[1])
         else:
-            resume_test()
-    elif args[0] == "random":
-        lifeGame = LifeGame(delay=0, height=150, width=150, cell_size=5)
-        lifeGame.random_gen()
-        lifeGame.run(show=show)
-    elif args[0] == "live":
-        lifeGame = LifeGame(delay=0, height=150, width=150)
-        if len(args) > 2:
-            if args[1] == "id":
-                lifeId = args[2]
-                lifeGame.set(lifeId)
+            main()
+    else:
+        if len(args) == 0:
+            args = ['']
+        if "save" in args:
+            save = True
+        else:
+            save = False
+        if "fast" in args:
+            fast = True
+        else:
+            fast = False
+        if "nogui" in args:
+            show = False
+        else:
+            show = True
+        if args[0] == "test":
+            lifeGame = LifeGame(delay=0, height=150, width=150, )
+            if len(args) > 2:
+                if args[1] == "id":
+                    lifeId = args[2]
+                    lifeGame.test(lifeId, show=show)
+                elif args[1] == "number":
+                    lifeGame.test(int(args[2]), show=show)
+        elif args[0] == "resume":
+            if len(args) > 1:
+
+                if len(args) > 2:
+                    test_number = int(args[1])
+                    serial_test(range_list=range(test_number, int(args[2])), show=show, save=save, fast=fast)
+                elif "+" in args[1]:
+                    limit = int(args[1][1:])
+                    print(f"resume to +{limit}")
+                    resume_test(limit=limit)
+                else:
+                    test_number = int(args[1])
+                    serial_test(range_list=range(test_number, test_number + 50), show=show, save=save, fast=fast)
+            else:
+                resume_test()
+        elif args[0] == "random":
+            lifeGame = LifeGame(delay=0, height=150, width=150, cell_size=5)
+            lifeGame.random_gen()
+            lifeGame.run(show=show)
+        elif args[0] == "live":
+            lifeGame = LifeGame(delay=0, height=150, width=150)
+            if len(args) > 2:
+                if args[1] == "id":
+                    lifeId = args[2]
+                    lifeGame.set(lifeId)
+                    lifeGame.live()
+            else:
+                lifeGame.base_alive_gen()
                 lifeGame.live()
         else:
+            lifeGame = LifeGame(delay=0.5, height=50, width=50, cell_size=15)
             lifeGame.base_alive_gen()
             lifeGame.live()
-    else:
-        lifeGame = LifeGame(delay=0.5, height=50, width=50, cell_size=15)
-        lifeGame.base_alive_gen()
-        lifeGame.live()

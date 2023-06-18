@@ -1,1 +1,2 @@
-git add . && git commit -m "%1" && git push -u
+@echo off
+git add . && git commit -m "%*" && git push -u

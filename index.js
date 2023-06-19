@@ -57,11 +57,17 @@ function switchMode(dark) {
     dark = Boolean(dark);
     setCookie('darkMode', dark, 365);
     console.log(`set to ${dark}`);
-    body.classList.toggle('dark-mode');
-
-    projectsContainer.forEach((project) => {
-        project.classList.toggle('dark-mode');
-    });
+    if (dark) {
+        body.classList.add('dark-mode');
+        projectsContainer.forEach((project) => {
+            project.classList.add('dark-mode');
+        });
+    } else {
+        body.classList.remove('dark-mode');
+        projectsContainer.forEach((project) => {
+            project.classList.remove('dark-mode');
+        });
+    }
 }
 
 function addViewed(element) {

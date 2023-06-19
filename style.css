@@ -1,203 +1,5 @@
-:root {
-    --banner-margin: 4vw;
-    --main-color: #333;
-    --sub-color: #777;
-    }
-    
-    body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
-    color: black;
-    transition: 200ms;
-    }
-    
-    body.dark-mode {
-    background-color: #13142c;
-    color: white;
-    }
-    
-    h1 {
-    text-align: center;
-    font-size: 3rem;
-    margin-top: 2rem;
-    color: var(--main-color);
-    }
-    
-    .project-container {
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 1rem;
-    margin: 2rem 5vw;
-    display: flex;
-    flex-direction: row;
-    box-shadow: #13142c 0px 0px 5px;
-    background-color: #ddd;
-    opacity: 1;
-    transition: 200ms;
-    }
-    
-    .project-container.dark-mode {
-    border: 1px solid #13142c;
-    box-shadow: #ddd 0px 0px 5px;
-    background-color: #13142c;
-    }
-    
-    .project-info {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    margin-left: 1rem;
-    }
-    
-    .project-name {
-    font-size: 2rem;
-    font-weight: bold;
-    color: var(--main-color);
-    margin-bottom: 0.5rem;
-    }
-    
-    .project-description {
-    font-size: 1.5rem;
-    color: var(--sub-color);
-    margin-bottom: 1rem;
-    }
-    
-    .project-language {
-    font-size: 1rem;
-    color: var(--sub-color);
-    margin-bottom: 1rem;
-    }
-    
-    .project-image {
-    max-width: 300px;
-    max-height: 200px;
-    border-radius: 4px;
-    }
-    
-    .project-links {
-    display: flex;
-    flex-wrap: wrap;
-    }
-    
-    em.terminal {
-    background-color: #222;
-    color: #ddd;
-    font-family: 'Courier New', monospace;
-    font-size: 14px;
-    padding: 7px;
-    width: auto;
-    margin-bottom: 10px;
-    }
-    
-    .download-button {
-    display: inline-block;
-    background-color: #007bff;
-    color: #fff;
-    text-decoration: none;
-    font-size: 14px;
-    padding: 10px 20px;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    height: 15px;
-    }
-    
-    .download-button:hover {
-    background-color: #0056b3;
-    }
-    
-    button {
-    display: inline-block;
-    background-color: #435261;
-    color: #fff;
-    text-decoration: none;
-    text-align: center;
-    font-size: 14px;
-    padding: 10px 20px;
-    margin: 10px;
-    border-radius: 5px;
-    height: 40px;
-    transform: translateY();
-    transition: 200ms;
-    }
-    
-    button:hover {
-    background-color: #708191;
-    }
-    
-    button:active {
-    background-color: #435261;
-    transform: translateY(+3px);
-    }
-    
-    .background-video {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    object-fit: cover;
-    opacity: 0.2;
-    }
-    
-    strong {
-    color: yellowgreen;
-    text-shadow: #222 0px 0px 5px;
-    }
-    
-    #tuto {
-    display: none;
-    visibility: hidden;
-    height: 0;
-    width: 0;
-    transition: 600ms ease-in-out;
-    }
-    
-    #dark-mode-button {
-    position: fixed;
-    top: 3px;
-    right: 0;
-    background-color: grey;
-    color: #ddd;
-    font-family: monospace;
-    font-size: 14px;
-    text-align: center;
-    padding: 10px 20px;
-    width: auto;
-    height: auto;
-    margin-bottom: 10px;
-    border: var(--sub-color) 4px solid;
-    height: 50px;
-    transition: 200ms;
-    }
-    
-    #dark-mode-button:hover {
-    background-color: rgb(99, 99, 99);
-    border: black 4px solid;
-    }
-    
-    #clear-button {
-    position: fixed;
-    background-image: linear-gradient(to right, rgb(37, 65, 43) 20%, gray 60%);
-    right: 4vw;
-    top: 3px;
-    font-family: monospace;
-    font-size: 14px;
-    text-align: center;
-    padding: 10px 20px;
-    width: auto;
-    height: 50px;
-    margin-bottom: 10px;
-    border: var(--sub-color) 4px solid;
-    }
-    
-    #clear-button:hover {
-    border: #222 4px solid;
-    background-image: linear-gradient(to right, rgb(37, 65, 43) 20%, rgb(99, 99, 99) 60%);
-    }
 
-/* :root {
+:root {
     --banner-margin: 60px;
     --main-color: #333;
     --sub-color: #777;
@@ -373,4 +175,160 @@ strong {
     border: #222 4px solid;
     background-image: linear-gradient(to right, rgb(37, 65, 43) 20%, rgb(99, 99, 99) 60%);
 }
-   */
+
+@media (max-width: 1500px) {
+    #clear-button {
+      top : 55px;
+      right: 0;
+    }
+  }
+
+@media screen and (max-width: 1000px) {
+    :root {
+        --banner-margin: 40px;
+        --main-color: #333;
+        --sub-color: #777;
+    }
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        color: black;
+        transition: 200ms;
+    }
+    body.dark-mode {
+        background-color: #13142c;
+        color: white;
+    }
+    h1 {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-top: 1.5rem;
+        color: var(--main-color);
+    }
+    .project-container {
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 1rem;
+        margin: 2rem 1rem;
+        display: flex;
+        flex-direction: column;
+        box-shadow: #13142c 0px 0px 5px;
+        background-color: #ddd;
+        opacity: 1;
+        transition: 200ms;
+    }
+    .project-container.dark-mode {
+        border: 1px solid #13142c;
+        box-shadow: #ddd 0px 0px 5px;
+        background-color: #13142c;
+    }
+    .project-info {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        margin-left: 0;
+        margin-top: 1rem;
+    }
+    .project-name {
+        font-size: 2rem;
+        font-weight: bold;
+        color: var(--main-color);
+        margin-bottom: 0.5rem;
+        text-align: center;
+    }
+    .project-description {
+        font-size: 1.5rem;
+        color: var(--sub-color);
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+    .project-language {
+        font-size: 1rem;
+        color: var(--sub-color);
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+    .project-image {
+        max-width: 100%;
+        height: auto;
+        border-radius: 4px;
+        margin: auto;
+    }
+    .project-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    em.terminal {
+        background-color: #222;
+        color: #ddd;
+        font-family: 'Courier New', monospace;
+        font-size: 14px;
+        padding: 7px;
+        width:auto;
+        margin-bottom: 10px;
+    }
+    .download-button {
+        display: block;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        font-size: 14px;
+        padding: 10px 20px;
+        margin: 1rem auto;
+        border-radius: 5px;
+        width: fit-content;
+        height: auto;
+    }
+    .download-button:hover {
+        background-color: #0056b3;
+    }
+    button {
+        display: block;
+        background-color: #435261;
+        color: #fff;
+        text-decoration: none;
+        text-align: center;
+        font-size: 14px;
+        padding: 10px 20px;
+        margin: 1rem auto;
+        border-radius: 5px;
+        height: 40px;
+        transform: translateY();
+        transition: 200ms;
+    }
+    button:hover {
+        background-color: #708191;
+    }
+    button:active {
+        background-color: #435261;
+        transform:translateY(+3px);
+    }
+    .background-video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        object-fit: cover;
+        opacity: 0.2;
+      }
+      
+      strong {
+        color: yellowgreen;
+        text-shadow: #222 0px 0px 5px;
+      }
+      
+      #tuto {
+        display: none
+      }
+    #dark-mode-button,
+    #clear-button {
+        top: 0;
+        position: relative;
+        width: 100%;
+        right: auto;
+        margin-bottom: 10px;
+    }
+  }

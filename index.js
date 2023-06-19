@@ -17,7 +17,7 @@ function hide(element) {
 }
 
 function reveal(element) {
-    addViewed(element);
+    addViewed(element.parentNode);
     console.log("element", element)
     const tutos = element.parentNode.querySelectorAll('#tuto');
     tutos.forEach((tuto) => {
@@ -71,16 +71,17 @@ function switchMode(dark) {
 }
 
 function addViewed(element) {
-    let name = element.parentNode.querySelector('.project-name').textContent;
+    // console.log("element", element);
+    let name = element.querySelector('.project-name').textContent;
     if (viewed instanceof Object) {
         if (!(name in viewed)) {
             viewed[name] = 0;
         }
         viewed[name]++;
-        const viewer = element.parentNode.querySelector('#viewer');
+        const viewer = element.querySelector('#viewer');
         viewer.innerHTML = `Vu <strong>${viewed[name]}</strong> fois par vous `;
         setCookie(name, viewed[name], 365);
-        console.log(viewed[name]);
+        
     }
     
 } 
@@ -121,8 +122,9 @@ projectsContainer.forEach((project) => {
     if (viewed[name]) {
         viewed[name]--;
         addViewed(project);
+       
     }
-    console.log(name, viewed[name] );
+    
 });
 console.log(viewed);
 

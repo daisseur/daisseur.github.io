@@ -14,7 +14,7 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 	<link rel="icon" type="image/png" href="./Deltacode.png">
 	<link rel="stylesheet" href="./style.css">
-	<link rel="preload" as="video" href="./bg.mp4" type="video/mp4">
+	<link rel="preload" as="video" href="./bg.mp4">
 </head>
 <body>
 	<h1>MY PROJECTS - HOME</h1>
@@ -69,7 +69,26 @@
 		<p id="viewer">Vu <strong>0</strong> fois par vous </p>
 		<button onclick="hide(this)">Hide</button>
 		<button onclick="reveal(this)">Reveal</button>
-		
+	</div>
+	<div class="project-container">
+		<img src="./projects/icones/python.png" class="project-image">
+		<div class="project-info">
+			<div class="project-name">"Librairy Of Babel" Python API</div>
+			<div class="project-description">Pour rechercher et obtenir le lien menant à une page de the LOB avec le mot selon différent mode</div>
+			<h3 id="tuto">Comment utiliser ?</h3>
+			<em class="terminal" id="tuto">$ python3 life_game.py</em>
+			<p id="tuto">
+				<br>
+				Le script demanderas une interaction de l'utilisateur pour qu'il puisse entrer le texte à rechercher, le mode par défaut est <strong>"alone"</strong>.
+			</p>
+			<div class="project-language">Python</div>
+			<div class="project-links">
+				<a href="./projects/LibrairyOfBabel/LibrairyOfBabel.py" download="LibrairyOfBabel.py" class="download-button">Download Code [REQUIRED]</a>
+			</div>
+		</div>
+		<p id="viewer">Vu <strong>0</strong> fois par vous </p>
+		<button onclick="hide(this)">Hide</button>
+		<button onclick="reveal(this)">Reveal</button>
 	</div>
 	<!-- Faire un élément pour mettre uen vidéo en arriere plan -->
 	<video class="background-video" src="./bg.mp4" autoplay muted loop>

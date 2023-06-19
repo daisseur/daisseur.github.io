@@ -114,6 +114,9 @@ button {
         background-color: #435261;
         transform:translateY(+3px);
     }
+    button:required {
+        background-color: #708191;
+    }
 .background-video {
     position: fixed;
     top: 0;
@@ -186,66 +189,22 @@ strong {
 @media screen and (max-width: 1000px) {
     :root {
         --banner-margin: 40px;
-        --main-color: #333;
-        --sub-color: #777;
-    }
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f2f2f2;
-        color: black;
-        transition: 200ms;
-    }
-    body.dark-mode {
-        background-color: #13142c;
-        color: white;
-    }
-    h1 {
-        text-align: center;
-        font-size: 2.5rem;
-        margin-top: 1.5rem;
-        color: var(--main-color);
     }
     .project-container {
-        border: 1px solid #ddd;
-        border-radius: 10px;
-        padding: 1rem;
         margin: 2rem 1rem;
-        display: flex;
         flex-direction: column;
-        box-shadow: #13142c 0px 0px 5px;
-        background-color: #ddd;
-        opacity: 1;
-        transition: 200ms;
-    }
-    .project-container.dark-mode {
-        border: 1px solid #13142c;
-        box-shadow: #ddd 0px 0px 5px;
-        background-color: #13142c;
     }
     .project-info {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
         margin-left: 0;
         margin-top: 1rem;
     }
     .project-name {
-        font-size: 2rem;
-        font-weight: bold;
-        color: var(--main-color);
-        margin-bottom: 0.5rem;
         text-align: center;
     }
     .project-description {
-        font-size: 1.5rem;
-        color: var(--sub-color);
-        margin-bottom: 1rem;
         text-align: center;
     }
     .project-language {
-        font-size: 1rem;
-        color: var(--sub-color);
-        margin-bottom: 1rem;
         text-align: center;
     }
     .project-image {
@@ -255,18 +214,7 @@ strong {
         margin: auto;
     }
     .project-links {
-        display: flex;
-        flex-wrap: wrap;
         justify-content: center;
-    }
-    em.terminal {
-        background-color: #222;
-        color: #ddd;
-        font-family: 'Courier New', monospace;
-        font-size: 14px;
-        padding: 7px;
-        width:auto;
-        margin-bottom: 10px;
     }
     .download-button {
         display: block;
@@ -279,9 +227,6 @@ strong {
         border-radius: 5px;
         width: fit-content;
         height: auto;
-    }
-    .download-button:hover {
-        background-color: #0056b3;
     }
     button {
         display: block;
@@ -297,38 +242,17 @@ strong {
         transform: translateY();
         transition: 200ms;
     }
-    button:hover {
-        background-color: #708191;
-    }
-    button:active {
-        background-color: #435261;
-        transform:translateY(+3px);
-    }
-    .background-video {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        object-fit: cover;
-        opacity: 0.2;
-      }
       
-      strong {
-        color: yellowgreen;
-        text-shadow: #222 0px 0px 5px;
-      }
-      
-      #tuto {
-        display: none
-      }
+    #tuto {
+    display: none
+    }
     #dark-mode-button,
     #clear-button {
         top: 0;
         position: relative;
-        width: 100%;
-        right: auto;
+        width: 80%;
+        right: 0px;
+        margin: 2rem 5rem;
         margin-bottom: 10px;
     }
-  }
+}

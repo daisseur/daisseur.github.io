@@ -251,9 +251,9 @@ strong {
         justify-content: center;
         top: 0;
         position: relative;
-        width: calc(100% - 5rem*2 );
+        width: calc(100% - 3rem*2 );
         right: 0px;
-        margin: 2rem 5rem;
+        margin: 2rem 3rem;
         margin-bottom: 10px;
     }
 }

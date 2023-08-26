@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang='fr'>
+<head>
+	<meta charset='UTF-8'>
+	<meta content='IE=edge' http-equiv='X-UA-Compatible'>
+	<meta content='dark light' name='color-scheme'>
+	<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+	<title>MY PROJECTS - HOME</title>
+	<meta content='Website patata' name='description'>
+	<style>
+		:root {
+			--soft-white: #f5f5f5;
+			--soft-black: #333333;
+			--primary-color: var(--soft-white);
+			--secondary-color: grey;
+			--accent-color: #1ed221;
+			--background-color: var(--soft-black);
+		}
+
+		body, html {
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			font-family: sans-serif;
+			min-width: 300px;
+			background-color: var(--background-color);
+			color: var(--primary-color);
+		}
+
+		header {
+			position: relative;
+			height: 120px;
+			padding: 20px;
+			background-color: var(--secondary-color);
+		}
+
+		#title {
+			text-align: center;
+			color: var(--soft-white);
+		}
+
+		.header-btn-container {
+			position: absolute;
+			right: 0;
+			top: 0;
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			gap: 10px;
+			padding-right: 40px;
+		}
+
+		.btn {
+			min-height: 40px;
+			width: 150px;
+			padding: 10px;
+			border: none;
+			border-radius: 5px;
+			color: var(--primary-color);
+		}
+
+		.header-btn {
+			max-width: 200px;
+			width: 100%;
+			border: 3px solid var(--accent-color);
+			background-color: var(--secondary-color);
+			color: var(--soft-white);
+		}
+
+		main {
+			margin-top: 20px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 20px;
+			padding: 40px;
+		}
+
+		section {
+			display: grid;
+			grid-template-columns: 300px 1fr max-content;
+			grid-template-rows: 300px repeat(2, auto);
+			row-gap: 20px;
+			column-gap: 30px;
+			max-width: 1000px;
+			padding: 40px 40px 10px;
+			border: 1px solid var(--accent-color);
+			border-radius: 5px;
+			overflow: hidden;
+		}
+
+		section > img {
+			max-width: 300px;
+			height: 100%;
+			max-height: 300px;
+			aspect-ratio: 1/1;
+		}
+
+		.main-content {
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-template-rows: repeat(2, auto);
+			gap: 20px;
+			height: 100%;
+			overflow: hidden;
+		}
+
+		.abstract {
+			overflow: hidden;
+		}
+
+		.btn-container {
+			display: flex;
+			justify-content: space-between;
+			align-items: end;
+			gap: 20px;
+		}
+
+		.btn-container > button[name^="btn-dl-"] {
+			background-color: #e8731a;
+		}
+
+		.views {
+			text-align: end;
+		}
+
+		.detailed-description {
+			grid-column: 1 / span 3;
+			transition-property: opacity, height, visibility;
+			transition-duration: .3s;
+			transition-timing-function: ease-in-out;
+			height: 0;
+			opacity: 1;
+		}
+
+		.btn-expand {
+			background-color: transparent;
+			height: max-content;
+			grid-column: 1 / span 3;
+			margin: 0 auto;
+		}
+
+		.hidden {
+			visibility: hidden;
+			opacity: 0;
+		}
+
+		@media only screen and ( max-width: 900px) {
+			main {
+				gap: 20px;
+				padding: 20px;
+			}
+
+			header {
+				height: max-content;
+			}
+
+			.header-btn-container {
+				position: relative;
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				grid-template-rows: 1fr;
+				padding-right: 0;
+				gap: 10px;
+			}
+
+			.header-btn {
+				margin: 0 auto;
+			}
+
+			section {
+				grid-template-columns: 1fr;
+				grid-template-rows: repeat(5, auto);
+			}
+
+			section > img {
+				margin: 0 auto;
+				max-width: 100%;
+			}
+
+			.btn-container {
+				height: fit-content;
+			}
+
+			.views {
+				margin: 0;
+			}
+
+			.detailed-description {
+				grid-column: unset;
+			}
+
+			.btn-expand {
+				grid-column: unset;
+			}
+		}
+
+		@media only screen and ( max-width: 450px) {
+			.btn-container {
+				flex-direction: column;
+			}
+
+			.btn-container > button[name^="btn-dl-"] {
+				width: 100%;
+			}
+		}
+	</style>
+</head>
+<body>
+<header>
+	<h1 id='title'>MY PROJECTS - HOME</h1>
+	<div class='header-btn-container'>
+		<button class='btn header-btn' id='cookie'>Clear cookies</button>
+		<button class='btn header-btn' data-theme='dark' id='dark-mode' onclick='changeThemeBtnHandler(this)'>Change
+			color
+			scheme
+		</button>
+	</div>
+</header>
+
+<main>
+	<section>
+		<img alt='Delta Paint logo' slot='image' src='https://daisseur.github.io//projects/DeltaPaint/Daytala-KA75.png'>
+		<div class='main-content'>
+			<p class='abstract'>Un logiciel de dessin en Python inspiré de Paint, offrant une expérience similaire à
+				celle d'il y a 30 ans, mais avec des fonctionnalités améliorées et une interface utilisateur plus
+				conviviale pour les utilisateurs d'aujourd'hui. - Chat GPT</p>
+			<div class='btn-container'>
+				<button class='btn' name='btn-dl-image'>Download image</button>
+				<button class='btn' name='btn-dl-code'>Download code</button>
+			</div>
+
+		</div>
+		<p class='views'>Vues: <span class='views-counter'>0</span></p>
+		<div class='detailed-description hidden'>
+			<h2>Comment utiliser ?</h2>
+			<p>
+				"Effacer l'écran" : Appuyez sur la touche [backspace]
+				"Enregistrer" : Appuyez sur la touche [S]
+				"Changer de couleur" : Clique droit de la souris
+				"Enlever le suivi de la souris" : Clique gauche de la souris
+				"Agrandir - diminuer" : Mollette de la souris
+				"Changer de forme" : Appuyer sur la touche [space]
+				Python
+			</p>
+		</div>
+		<button aria-expanded='false' class='btn btn-expand' onclick='expandBtnHandler(this)'>Voir plus +</button>
+	</section>
+	<section>
+		<img alt='Delta Paint logo' slot='image' src='https://daisseur.github.io//projects/DeltaPaint/Daytala-KA75.png'>
+		<div class='main-content'>
+			<p class='description'>Un logiciel de dessin en Python inspiré de Paint, offrant une expérience similaire à
+				celle d'il y a 30 ans, mais avec des fonctionnalités améliorées et une interface utilisateur plus
+				conviviale pour les utilisateurs d'aujourd'hui. - Chat GPT</p>
+			<div class='btn-container'>
+				<button class='btn' name='btn-dl-image'>Download image</button>
+				<button class='btn' name='btn-dl-code'>Download code</button>
+			</div>
+
+		</div>
+		<p class='views'>Vues: 0</p>
+		<div class='detailed-description hidden'>
+			<h2>Comment utiliser ?</h2>
+			<p>
+				"Effacer l'écran" : Appuyez sur la touche [backspace]
+				"Enregistrer" : Appuyez sur la touche [S]
+				"Changer de couleur" : Clique droit de la souris
+				"Enlever le suivi de la souris" : Clique gauche de la souris
+				"Agrandir - diminuer" : Mollette de la souris
+				"Changer de forme" : Appuyer sur la touche [space]
+				Python
+			</p>
+		</div>
+		<button aria-expanded='false' class='btn btn-expand' onclick='expandBtnHandler(this)'>Voir plus +</button>
+	</section>
+</main>
+<script>
+	const cookieBtn = document.getElementById('cookie');
+	const darkModeBtn = document.getElementById('dark-mode');
+	const allSections = Array.from(document.getElementsByTagName('section')).map(section => ({
+		section,
+		detailedDescription: section.querySelector('.detailed-description'),
+		expandBtn: section.querySelector('.btn-expand'),
+		viewCounter: section.querySelector('.views'),
+	}));
+
+	let expandBtnText = {
+		expanded: 'Voir moins -',
+		collapsed: 'Voir plus +',
+	};
+
+	function openDetailedDescription(section) {
+		section.detailedDescription.classList.remove('hidden');
+		section.detailedDescription.style.height = `${section.detailedDescription.scrollHeight}px`;
+		section.expandBtn.setAttribute('aria-expanded', 'true');
+		section.expandBtn.textContent = expandBtnText['expanded'];
+	}
+
+	function closeDetailedDescription(section) {
+		section.detailedDescription.style.height = 0;
+		section.expandBtn.textContent = expandBtnText['collapsed'];
+		section.detailedDescription.classList.add('hidden');
+		section.expandBtn.setAttribute('aria-expanded', 'false');
+	}
+
+	function expandBtnHandler(self) {
+		if (self.getAttribute('aria-expanded') === 'true') {
+			closeDetailedDescription(allSections.find(section => section.expandBtn === self));
+		} else {
+			let currentSection;
+			allSections.forEach((section) => {
+				if (section.expandBtn === self) {
+					currentSection = section;
+				} else {
+					closeDetailedDescription(section);
+				}
+			});
+			openDetailedDescription(currentSection);
+		}
+	}
+
+	const styles = {
+		light: {
+			'--primary-color': 'var(--soft-white)',
+			'--background-color': 'var(--soft-black)',
+		},
+		dark: {
+			'--primary-color': 'var(--soft-black)',
+			'--background-color': 'var(--soft-white)',
+		},
+	};
+
+	function changeThemeBtnHandler(self) {
+		const colorScheme = self.getAttribute('data-theme');
+
+		Object.entries(styles[colorScheme]).forEach(([property, value]) => {
+			document.documentElement.style.setProperty(property, value);
+		});
+
+		self.setAttribute('data-theme', colorScheme === 'light' ? 'dark' : 'light');
+	}
+
+
+	!window.matchMedia(`(prefers-color-scheme: ${darkModeBtn.getAttribute('data-theme')})`).matches && changeThemeBtnHandler(darkModeBtn);
+</script>
+</body>
+</html>

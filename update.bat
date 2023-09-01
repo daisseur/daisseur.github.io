@@ -1,5 +1,7 @@
 @echo off
+rm -r projects/
+cp -r D:\projects\Public\ projects
 git add .
-git add --rename D:\projects\Public projects
 git commit -m "%*"
 git push -u
+

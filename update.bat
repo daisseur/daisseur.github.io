@@ -1,6 +1,7 @@
 @echo off
-rmdir /s projects\
-copy D:\projects\Public\ projects
+rmdir /S /Q projects\
+mkdir projects
+xcopy D:\projects\Public\ projects /E
 git add .
 git commit -m "%*"
 git push -u

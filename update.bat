@@ -1,6 +1,6 @@
 @echo off
-rm -r projects/
-cp -r D:\projects\Public\ projects
+rmdir /s projects\
+copy D:\projects\Public\ projects
 git add .
 git commit -m "%*"
 git push -u

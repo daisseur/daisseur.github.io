@@ -1,0 +1,132 @@
+:root {
+    --banner-margin: 60px;
+}
+
+
+div.banner {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: calc(100% - var(--banner-margin)*2 );
+    background-color: var(--fg-color);
+    border-radius: 5px;
+    color: var(--text-color);
+    margin-left: var(--banner-margin);
+    margin-right: var(--banner-margin);
+    margin-top: 5px;
+    margin-bottom: 10px;
+    text-align:center;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #333;
+    margin-top: 200px;
+    padding: 0;
+    color: #fff;
+    min-width: 500px;
+    min-height: 200px;
+    border-radius: 10px;
+}
+
+h1 {
+    text-align: center;
+    padding: 20px 0;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    white-space: nowrap; /* Empêche le retour à la ligne automatique */
+    display: flex;
+    flex-wrap: wrap; /* Les éléments se mettront en dessous les uns des autres si nécessaire */
+}
+
+li {
+    list-style: none;
+    margin: 0 6px;
+    flex: 1; /* Permet aux éléments de s'étendre et de se réduire pour s'adapter à la largeur disponible */
+    max-width: calc(33.33% - 12px); /* Ajustez en fonction de votre mise en page */
+    min-width: min-content;
+}
+
+
+.element {
+    position: relative;
+    background-color: #222;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.element a {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+}
+
+.element .timestamp {
+    display: block;
+    color: #d7f0c9;
+    margin-bottom: 5px;
+}
+
+.element .download-button {
+    display: block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 5px;
+    width: 85%;
+}
+
+#fullPage, #clear, #removeLast {
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    background-color: gray;
+    color: white;
+    width: 200px;
+    height: 50px;
+}
+
+.downContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#removeButton {
+    transition: 100ms;
+    display: block;
+    /* position: absolute;
+    top: 25px;
+    right: 0; */
+    margin-left: 5px;
+    border-radius: 5px;
+    border: 0;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    background-color: rgb(172, 28, 28);
+    color: white;
+} #removeButton:hover {
+    background-color: red;
+} #removeButton:active {
+    translate: 0 5px;
+}
+
+img {
+    max-height: 200px;
+    border-radius: 10px;
+}
+video {
+    max-height: 200px;
+    border-radius: 10px;
+}

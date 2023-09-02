@@ -11,7 +11,7 @@ function addMedia(url) {
 }
 
 function checkMediaUrl(url) {
-  if (url && url.includes) {
+  if (url && url.includes('discord')) {
     let base = url;
     if (url.includes("?")) {
       base = url.split("?")[0];

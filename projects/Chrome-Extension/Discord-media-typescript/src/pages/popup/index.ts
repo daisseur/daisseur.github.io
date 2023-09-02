@@ -1,7 +1,6 @@
-import { PAGE_URL } from '~/utils';
-
 import { BackgroundScriptMessage, PopUpScriptMessage } from '~/utils/messages';
 
+const PAGE_URL  =  window.location.href.toString();
 const BODY = document.body.getElementsByTagName('ul').item(0);
 const FULL_PAGE_BUTTON = document.getElementById('fullPage');
 const CLEAR_BUTTON = document.getElementById('clear');

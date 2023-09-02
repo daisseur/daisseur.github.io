@@ -1,6 +1,6 @@
-import { PAGE_URL } from '~/utils';
 import { ContentScriptMessage } from '~/utils/messages';
 
+const PAGE_URL  =  window.location.href.toString();
 const OVERED_URLS: string[] = [];
 const IMAGES_EXT = ['png', 'jpg', 'jpeg', 'gif', 'webp'];
 const VIDEO_EXT = ['mp4', 'webm'];

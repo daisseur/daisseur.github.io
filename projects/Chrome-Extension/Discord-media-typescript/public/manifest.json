@@ -1,0 +1,37 @@
+{
+  "manifest_version": 2,
+  "name": "discord-media",
+  "version": "1.0.0",
+  "description": "Discord chrome extension",
+  "icons": {
+    "128": "discord_neon_logo.png"
+  },
+  "permissions": [
+    "activeTab",
+    "contextMenus",
+    "downloads",
+    "tabs",
+    "runtime"
+  ],
+  "background": {
+    "scripts": [
+      "src/pages/background/index.js"
+    ],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://discord.com/*",
+        "<all_urls>"
+      ],
+      "js": [
+        "src/pages/content/index.js"
+      ]
+    }
+  ],
+  "browser_action": {
+    "default_title": "discord-media",
+    "default_popup": "src/pages/popup/index.html"
+  }
+}

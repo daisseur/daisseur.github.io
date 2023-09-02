@@ -7,7 +7,7 @@ const FULL_PAGE_BUTTON = document.getElementById('fullPage');
 const CLEAR_BUTTON = document.getElementById('clear');
 const REMOVE_LAST = document.getElementById('removeLast');
 if (!BODY || !FULL_PAGE_BUTTON || !CLEAR_BUTTON || !REMOVE_LAST) {
-	throw alert('Error: popupScript.ts');
+	throw new Error('popupScript.ts: missing html elements');
 }
 
 //to list

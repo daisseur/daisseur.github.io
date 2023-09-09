@@ -1,0 +1,23 @@
+{
+  "manifest_version": 2,
+  "name": "Proxy Changer",
+  "version": "1.0",
+  "description": "Change proxy on click",
+  "icons": {
+    "48": "icon.png"
+  },
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "48": "icon.png"
+    }
+  },
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "permissions": [
+    "activeTab",
+    "proxy"
+  ]
+}
